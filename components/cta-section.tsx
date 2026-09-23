@@ -42,7 +42,7 @@ export function CtaSection() {
             <span className="washi-tape washi-tape-white pointer-events-none absolute -left-2 -top-2.5 z-20 h-6 w-14 -rotate-12" />
             <div className="relative aspect-square w-full overflow-hidden rounded-[2px] bg-muted">
               <Image
-                src="/images/collage-flowers.png"
+                src="/Portifolio-/images/collage-flowers.png"
                 alt="Flores secas sobre papel"
                 fill
                 sizes="130px"

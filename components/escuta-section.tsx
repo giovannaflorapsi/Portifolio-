@@ -60,7 +60,7 @@ export function EscutaSection() {
 
             <div className="relative aspect-square w-full overflow-hidden rounded-[2px] bg-muted">
               <Image
-                src="/images/collage-hands.png"
+                src="/Portifolio-/images/collage-hands.png"
                 alt="Mãos segurando uma xícara junto à janela"
                 fill
                 sizes="(max-width: 768px) 90vw, 35vw"

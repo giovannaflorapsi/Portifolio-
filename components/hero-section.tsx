@@ -71,7 +71,7 @@ export function HeroSection() {
 
             <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-[2px] bg-muted">
               <Image
-                src="/images/flora-portrait.png"
+                src="/Portifolio-/images/flora-portrait.png"
                 alt="Retrato de Giovanna Flora, psicóloga clínica"
                 fill
                 priority
