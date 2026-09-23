@@ -1,0 +1,462 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-instrument-sans);
+  --font-serif: var(--font-fraunces);
+  --font-hand: var(--font-caveat);
+  --font-mono: var(--font-special-elite);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-paper: var(--paper);
+  --color-paper-warm: var(--paper-warm);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-soft: var(--terracotta-soft);
+  --color-rose: var(--rose);
+  --color-rose-soft: var(--rose-soft);
+  --color-rose-deep: var(--rose-deep);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  color-scheme: light;
+
+  /* Paleta artística acolhedora: Laranja damasco, Branco e Rosa framboesa/blush */
+  --paper: #FFF4EE;
+  --paper-warm: #FCE8DE;
+  --ink: #321721;
+  --ink-muted: #6B4553;
+  --terracotta: #DF5623;
+  --terracotta-soft: #FCD6C4;
+  --rose: #C83F69;
+  --rose-soft: #F7B8CC;
+  --rose-deep: #901C42;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: #FFFDFB;
+  --card-foreground: var(--ink);
+  --popover: #FFFDFB;
+  --popover-foreground: var(--ink);
+  --primary: var(--terracotta);
+  --primary-foreground: #FFFDFB;
+  --secondary: var(--rose-soft);
+  --secondary-foreground: var(--ink);
+  --muted: #EED7CA;
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--rose);
+  --accent-foreground: #FFFDFB;
+  --destructive: #D93636;
+  --border: #E8C8B8;
+  --input: #E8C8B8;
+  --ring: var(--terracotta);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image:
+      radial-gradient(rgba(50, 23, 33, 0.035) 1px, transparent 1px);
+    background-size: 6px 6px;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    background-color: #F8B4C8;
+    color: #321721;
+  }
+}
+
+@layer utilities {
+  /* ── Papéis de parede listrados com ritmos e variações por seção ── */
+
+  /* 1. Hero: Listras duplas ritmadas em tom damasco e rosa floral */
+  .bg-stripes-hero {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 36px,
+      rgba(223, 86, 35, 0.10) 36px,
+      rgba(223, 86, 35, 0.10) 38px,
+      transparent 38px,
+      transparent 44px,
+      rgba(200, 63, 105, 0.10) 44px,
+      rgba(200, 63, 105, 0.10) 46px
+    );
+  }
+
+  /* 2. Escuta: Listras verticais clássicas e delicadas de papel de parede vintage */
+  .bg-stripes-escuta {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 24px,
+      rgba(200, 63, 105, 0.14) 24px,
+      rgba(200, 63, 105, 0.14) 26px
+    );
+  }
+
+  /* 3. Encontro: Pinstripe fino e espaçado em tom pêssego damasco */
+  .bg-stripes-encontro {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 38px,
+      rgba(223, 86, 35, 0.12) 38px,
+      rgba(223, 86, 35, 0.12) 40px
+    );
+  }
+
+  /* 4. Processo: Listras em cadência elegante sobre rosa framboesa */
+  .bg-stripes-processo {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 28px,
+      rgba(144, 28, 66, 0.10) 28px,
+      rgba(144, 28, 66, 0.10) 31px
+    );
+  }
+
+  /* 5. Temas: Listras de ritmo alternado (faixa fina + faixa média) exclusivo para a seção Temas */
+  .bg-stripes-temas {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 32px,
+      rgba(223, 86, 35, 0.09) 32px,
+      rgba(223, 86, 35, 0.09) 34px,
+      transparent 34px,
+      transparent 42px,
+      rgba(200, 63, 105, 0.12) 42px,
+      rgba(200, 63, 105, 0.12) 47px
+    );
+  }
+
+  /* 6. Dúvidas: Listras suaves de repouso visual */
+  .bg-stripes-duvidas {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 30px,
+      rgba(223, 86, 35, 0.08) 30px,
+      rgba(223, 86, 35, 0.08) 32px
+    );
+  }
+
+  /* ── Washi tape artesanal ── */
+  .washi-tape {
+    position: relative;
+    box-shadow: 0 2px 6px rgba(50, 23, 33, 0.08), 0 1px 2px rgba(50, 23, 33, 0.04);
+    opacity: 0.95;
+    backdrop-filter: blur(2px);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  }
+
+  .washi-tape:hover {
+    transform: scale(1.03) rotate(0deg);
+    box-shadow: 0 4px 12px rgba(50, 23, 33, 0.12), 0 2px 4px rgba(50, 23, 33, 0.06);
+    z-index: 30;
+  }
+
+  .washi-tape-rose {
+    background-color: #F3AEC3;
+    clip-path: polygon(
+      0% 5%, 4% 0%, 96% 0%, 100% 5%,
+      98% 30%, 100% 55%, 97% 80%, 100% 95%,
+      96% 100%, 4% 100%, 0% 95%,
+      3% 75%, 0% 50%, 2% 25%
+    );
+  }
+
+  .washi-tape-peach {
+    background-color: #F7BF9E;
+    clip-path: polygon(
+      0% 4%, 3% 0%, 97% 0%, 100% 4%,
+      98% 28%, 100% 52%, 97% 78%, 100% 96%,
+      97% 100%, 3% 100%, 0% 96%,
+      2% 70%, 0% 48%, 3% 22%
+    );
+  }
+
+  .washi-tape-white {
+    background-color: rgba(255, 255, 255, 0.92);
+    border: 1px dashed rgba(223, 86, 35, 0.15);
+    clip-path: polygon(
+      0% 5%, 4% 0%, 96% 0%, 100% 5%,
+      98% 32%, 100% 58%, 97% 82%, 100% 95%,
+      96% 100%, 4% 100%, 0% 95%,
+      3% 72%, 0% 45%, 2% 20%
+    );
+  }
+
+  .highlight-mark {
+    background: linear-gradient(
+      to bottom,
+      transparent 60%,
+      rgba(223, 86, 35, 0.2) 60%
+    );
+    transition: background 0.3s ease;
+  }
+  
+  .highlight-mark:hover {
+    background: linear-gradient(
+      to bottom,
+      transparent 60%,
+      rgba(223, 86, 35, 0.35) 60%
+    );
+  }
+
+  .shadow-paper {
+    box-shadow: 0 4px 12px rgba(50, 23, 33, 0.06),
+      0 16px 32px -12px rgba(50, 23, 33, 0.1);
+  }
+
+  .shadow-polaroid {
+    box-shadow: 0 6px 16px -2px rgba(50, 23, 33, 0.06),
+      0 24px 48px -12px rgba(50, 23, 33, 0.15);
+  }
+
+  /* Reveal Animations */
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-reveal-up {
+    animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* SVG Draw Animation */
+  @keyframes draw-path {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .animate-draw {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw-path 3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.2s;
+  }
+
+  /* ── Animações de Vento Orgânico para Folhas Contínuas ── */
+  @keyframes leaf-wind-drift-1 {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(0deg) rotateY(0deg);
+      opacity: 0;
+    }
+    3% {
+      opacity: var(--leaf-opacity, 0.7);
+    }
+    18% {
+      transform: translate3d(42px, 120px, 0) rotate(22deg) rotateY(18deg);
+    }
+    35% {
+      transform: translate3d(12px, 260px, 0) rotate(6deg) rotateY(-14deg);
+    }
+    52% {
+      transform: translate3d(58px, 420px, 0) rotate(34deg) rotateY(24deg);
+    }
+    70% {
+      transform: translate3d(-16px, 590px, 0) rotate(-16deg) rotateY(-18deg);
+    }
+    86% {
+      transform: translate3d(32px, 750px, 0) rotate(20deg) rotateY(12deg);
+    }
+    97% {
+      opacity: var(--leaf-opacity, 0.7);
+    }
+    100% {
+      transform: translate3d(54px, 880px, 0) rotate(40deg) rotateY(28deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes leaf-wind-drift-2 {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(15deg) rotateY(-10deg);
+      opacity: 0;
+    }
+    3% {
+      opacity: var(--leaf-opacity, 0.65);
+    }
+    22% {
+      transform: translate3d(-38px, 140px, 0) rotate(-24deg) rotateY(-22deg);
+    }
+    40% {
+      transform: translate3d(24px, 290px, 0) rotate(18deg) rotateY(16deg);
+    }
+    58% {
+      transform: translate3d(-28px, 460px, 0) rotate(-12deg) rotateY(-14deg);
+    }
+    76% {
+      transform: translate3d(36px, 640px, 0) rotate(26deg) rotateY(20deg);
+    }
+    92% {
+      transform: translate3d(-14px, 790px, 0) rotate(-8deg) rotateY(-10deg);
+    }
+    97% {
+      opacity: var(--leaf-opacity, 0.65);
+    }
+    100% {
+      transform: translate3d(20px, 920px, 0) rotate(32deg) rotateY(25deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes leaf-wind-drift-3 {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(-8deg) rotateY(8deg);
+      opacity: 0;
+    }
+    4% {
+      opacity: var(--leaf-opacity, 0.5);
+    }
+    26% {
+      transform: translate3d(28px, 180px, 0) rotate(16deg) rotateY(14deg);
+    }
+    50% {
+      transform: translate3d(-32px, 380px, 0) rotate(-18deg) rotateY(-16deg);
+    }
+    74% {
+      transform: translate3d(22px, 580px, 0) rotate(14deg) rotateY(10deg);
+    }
+    96% {
+      opacity: var(--leaf-opacity, 0.5);
+    }
+    100% {
+      transform: translate3d(-10px, 760px, 0) rotate(-22deg) rotateY(-18deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes leaf-wind-drift-4 {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(5deg) rotateY(0deg);
+      opacity: 0;
+    }
+    3% {
+      opacity: var(--leaf-opacity, 0.6);
+    }
+    19% {
+      transform: translate3d(50px, 110px, 0) rotate(28deg) rotateY(20deg);
+    }
+    38% {
+      transform: translate3d(8px, 240px, 0) rotate(4deg) rotateY(-8deg);
+    }
+    57% {
+      transform: translate3d(45px, 390px, 0) rotate(32deg) rotateY(22deg);
+    }
+    75% {
+      transform: translate3d(-20px, 540px, 0) rotate(-14deg) rotateY(-16deg);
+    }
+    90% {
+      transform: translate3d(26px, 690px, 0) rotate(18deg) rotateY(12deg);
+    }
+    97% {
+      opacity: var(--leaf-opacity, 0.6);
+    }
+    100% {
+      transform: translate3d(38px, 820px, 0) rotate(36deg) rotateY(26deg);
+      opacity: 0;
+    }
+  }
+
+  .leaf-wind-1 {
+    animation: leaf-wind-drift-1 var(--leaf-duration, 26s) linear infinite;
+    animation-delay: var(--leaf-delay, 0s);
+    will-change: transform, opacity;
+  }
+
+  .leaf-wind-2 {
+    animation: leaf-wind-drift-2 var(--leaf-duration, 30s) linear infinite;
+    animation-delay: var(--leaf-delay, 0s);
+    will-change: transform, opacity;
+  }
+
+  .leaf-wind-3 {
+    animation: leaf-wind-drift-3 var(--leaf-duration, 36s) linear infinite;
+    animation-delay: var(--leaf-delay, 0s);
+    will-change: transform, opacity;
+  }
+
+  .leaf-wind-4 {
+    animation: leaf-wind-drift-4 var(--leaf-duration, 28s) linear infinite;
+    animation-delay: var(--leaf-delay, 0s);
+    will-change: transform, opacity;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .leaf-wind-1,
+    .leaf-wind-2,
+    .leaf-wind-3,
+    .leaf-wind-4 {
+      animation: none !important;
+      opacity: 0.35 !important;
+      transform: none !important;
+    }
+  }
+}
