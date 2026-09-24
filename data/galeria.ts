@@ -8,7 +8,7 @@
     rotate: 'rotate-[-2deg]'
   },
   {
-    src: '/Portifolio-/images/carrossel/img (2).jpeg',
+    src: '/Portifolio-/images/carrossel/img (2).jpeg?v=2',
     alt: 'Momento clínico 2',
     caption: 'nossos detalhes',
     tape: 'washi-tape-peach',
