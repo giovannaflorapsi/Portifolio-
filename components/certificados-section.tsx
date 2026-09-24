@@ -63,12 +63,12 @@ export function CertificadosSection() {
 
                 <ScrollReveal delay={200}>
           <div className={`relative transition-all duration-1000 ease-in-out overflow-hidden ${isExpanded ? 'max-h-[3000px]' : 'max-h-[450px] md:max-h-[600px]'}`}>
-            <div className="columns-2 gap-4 md:columns-3 lg:columns-4 lg:gap-6 space-y-4 lg:space-y-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
               {CERTIFICADOS.map((cert, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedIndex(index)}
-                  className="group relative block w-full overflow-hidden rounded-[2px] bg-white border border-ink/5 p-2 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta cursor-zoom-in break-inside-avoid"
+                  className="group relative flex flex-col w-full overflow-hidden rounded-[2px] bg-white border border-ink/5 p-2 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta cursor-zoom-in"
                   aria-label={`Ampliar certificado ${index + 1}`}
                 >
                   <div className="relative w-full overflow-hidden bg-muted rounded-[1px] aspect-[1.414/1]">
