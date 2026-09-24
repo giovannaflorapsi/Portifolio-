@@ -1,0 +1,18 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #f4ede0; }
+    .star { stroke: #c26a3d; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #2b2019; }
+      .star { stroke: #e08a5a; }
+    }
+  </style>
+  <rect class="bg" width="32" height="32" rx="7" />
+  <path
+    class="star"
+    d="M16 4.5c.8 5.73 3.07 8.8 8.67 9.73C19.07 15.4 16.8 18.47 16 24.2c-.8-5.6-3.07-8.67-8.67-9.87C12.93 13.4 15.2 10.4 16 4.5Z"
+    stroke-width="1.9"
+    stroke-linejoin="round"
+    fill="none"
+  />
+</svg>
