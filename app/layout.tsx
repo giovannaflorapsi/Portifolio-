@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next'
+﻿import type { Metadata, Viewport } from 'next'
 import { Fraunces, Instrument_Sans, Caveat, Special_Elite } from 'next/font/google'
 import './globals.css'
 
@@ -55,8 +55,8 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       className={`bg-background ${fraunces.variable} ${instrumentSans.variable} ${caveat.variable} ${specialElite.variable}`}
-    >
-      <body className="antialiased">
+     suppressHydrationWarning>
+      <body className="antialiased" suppressHydrationWarning>
         {children}
       </body>
     </html>

@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+﻿@import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 
@@ -196,6 +196,21 @@
       transparent 30px,
       rgba(223, 86, 35, 0.08) 30px,
       rgba(223, 86, 35, 0.08) 32px
+    );
+  }
+
+  /* 7. Galeria: Listras delicadas alternadas rosa-pêssego para o mural de fotos */
+  .bg-stripes-galeria {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(200, 63, 105, 0.07) 40px,
+      rgba(200, 63, 105, 0.07) 42px,
+      transparent 42px,
+      transparent 54px,
+      rgba(223, 86, 35, 0.06) 54px,
+      rgba(223, 86, 35, 0.06) 56px
     );
   }
 
@@ -458,5 +473,44 @@
       opacity: 0.35 !important;
       transform: none !important;
     }
+  }
+
+  /* ── Marquee Polaroid Animation ── */
+  @keyframes marquee-scroll {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .marquee-track {
+    animation: marquee-scroll 45s linear infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none !important;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+@keyframes modal-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }

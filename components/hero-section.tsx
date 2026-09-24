@@ -108,7 +108,7 @@ export function HeroSection() {
         <div className="relative z-10 mx-auto max-w-[42rem] px-5 pb-16 pt-16 md:px-8 md:pb-24 md:pt-20 animate-reveal-up" style={{ opacity: 0, animationDelay: '0.2s' }}>
           <div className="space-y-7 text-[1.15rem] leading-[1.8] text-ink/85">
             <p>
-              Sou Flora, psicóloga, e acredito na importância de um espaço em que você
+              Sou Giovanna Flora, psicóloga, e acredito na importância de um espaço em que você
               possa falar sobre aquilo que nem sempre encontra lugar no cotidiano.
             </p>
             <p className="relative">

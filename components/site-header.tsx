@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import { DoodleStar } from '@/components/doodles'
@@ -7,7 +7,9 @@ const NAV = [
   { label: 'Início', href: '#inicio' },
   { label: 'A Escuta', href: '#escuta' },
   { label: 'O Encontro', href: '#encontro' },
+  { label: 'Fragmentos', href: '#fragmentos' },
   { label: 'Temas', href: '#temas' },
+  { label: 'Formação', href: '#formacao' },
   { label: 'Dúvidas', href: '#duvidas' },
   { label: 'Contato', href: '#contato' },
 ]
